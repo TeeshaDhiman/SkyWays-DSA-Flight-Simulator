@@ -63,19 +63,17 @@ This project demonstrates how advanced algorithmic logic and data structures can
 ## 📁 Project Structure
 
 Skyways-DSA-Flight-Simulator/
-- src/              # C++ source files
-   - flight_booking.cpp
-   - flight_simulator.cpp
-- assets/           # Runtime assets (images, maps)
-- dll/              # Required DLLs (not committed to Git)
-- output/           # Generated files (boarding passes)
-- screenshots/      # Demo images and documentation visuals
-- demo/             # Animated demo (MP4)
-- compile.bat       # Build script (Windows)
-- run.bat           # Run script (sets up DLL path)
-- .vscode/          # VS Code settings (optional)
-- .gitignore        # Git ignore rules
-- README.md         # Project documentation
+- `src/` — C++ source files (`flight_simulator.cpp`, `flight_booking.cpp`, `config.h`)
+- `assets/` — Runtime assets (Images, Maps)
+- `dll/` — Required DLLs (not committed to Git)
+- `output/` — Generated files (Boarding passes)
+- `screenshots/` — Demo Images and documentation visuals
+- `demo/` — Animated demo (MP4)
+- `compile.bat` — Build script (Windows)
+- `run.bat` — Run script (sets up DLL path)
+- `.vscode/` — VS Code settings (optional)
+- `.gitignore` — Git ignore rules
+- `README.md` — Project documentation
 
 ---
 
