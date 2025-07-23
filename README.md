@@ -63,30 +63,30 @@ This project demonstrates how advanced algorithmic logic and data structures can
 ## 📁 Project Structure
 
 Skyways-DSA-Flight-Simulator/
-├── src/              # C++ source files
-│   ├── flight_booking.cpp
-│   └── flight_simulator.cpp
-├── assets/           # Runtime assets (images, maps)
-├── dll/              # Required DLLs (not committed to Git)
-├── output/           # Generated files (boarding passes)
-├── screenshots/      # Demo images and documentation visuals
-├── demo/             # Animated demo (MP4)
-├── compile.bat       # Build script (Windows)
-├── run.bat           # Run script (sets up DLL path)
-├── .vscode/          # VS Code settings (optional)
-├── .gitignore        # Git ignore rules
-└── README.md         # Project documentation
+- src/              # C++ source files
+   - flight_booking.cpp
+   - flight_simulator.cpp
+- assets/           # Runtime assets (images, maps)
+- dll/              # Required DLLs (not committed to Git)
+- output/           # Generated files (boarding passes)
+- screenshots/      # Demo images and documentation visuals
+- demo/             # Animated demo (MP4)
+- compile.bat       # Build script (Windows)
+- run.bat           # Run script (sets up DLL path)
+- .vscode/          # VS Code settings (optional)
+- .gitignore        # Git ignore rules
+- README.md         # Project documentation
 
 ---
 
 ## 📦 Dependencies
 
-- **SFML 2.6.2**                  Graphics rendering and real-time animation
-- **CPR**                         HTTP requests (for OpenWeatherMap API)
-- **nlohmann/json**               JSON parsing and processing  
-- **C++ Compiler (C++17+)**       Required to compile the project
-- **Windows OS**                  Current build supports Windows by default
-- **OpenWeatherMap API key**      Access to live weather data
+- **SFML 2.6.2**                  [Graphics rendering and real-time animation]
+- **CPR**                         [HTTP requests (for OpenWeatherMap API)]
+- **nlohmann/json**               [JSON parsing and processing]  
+- **C++ Compiler (C++17+)**       [Required to compile the project]
+- **Windows OS**                  [Current build supports Windows by default]
+- **OpenWeatherMap API key**      [Access to live weather data]
 
 ---
 
@@ -145,4 +145,4 @@ This project is licensed under the **MIT** License and is intended solely for ed
 ## 👤 Author
 
 Teesha Dhiman
-Developer of Skyways: DSA Flight Simulator
+(Developer of Skyways: DSA Flight Simulator)
