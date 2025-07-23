@@ -18,11 +18,18 @@
 #include <cpr/cpr.h>
 #include <nlohmann/json.hpp>
 #include <fstream>
+#include "config.h"
 using namespace std;
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
+
+#ifndef OPENWEATHERMAP_API_KEY
+#error "API key not defined! Please create config.h and define OPENWEATHERMAP_API_KEY."
+#endif
+
+string apiKey = OPENWEATHERMAP_API_KEY;
 
 struct Airport
 {
@@ -527,9 +534,8 @@ void visualizeGraph(const FlightGraph &graph, const vector<int> &path, const vec
     info2.setFillColor(sf::Color::Yellow);
     info2.setPosition(infoX + 10, panelY + 60);
 
-    // Use bookedDate and bookedTime if provided, else fallback to current
-    std::string displayDate = bookedDate.empty() ? Date::getCurrentDate().toString() : bookedDate;
-    std::string displayTime = bookedTime.empty() ? [](){
+    string displayDate = bookedDate.empty() ? Date::getCurrentDate().toString() : bookedDate;
+    string displayTime = bookedTime.empty() ? [](){
         auto now = chrono::system_clock::now();
         time_t now_time = chrono::system_clock::to_time_t(now);
         tm *now_tm = localtime(&now_time);
@@ -1361,8 +1367,8 @@ int main(int argc, char *argv[])
         string depTime = depBuf;
         string arrTime = arrBuf;
 
-        DetailedWeather depWeather = getForecastWeather(graph.airports[u].latitude, graph.airports[u].longitude, "1b94bfcc73fd73a372503e6a7a05c9ba", bookedDate, depTime);
-        DetailedWeather arrWeather = getForecastWeather(graph.airports[v].latitude, graph.airports[v].longitude, "1b94bfcc73fd73a372503e6a7a05c9ba", bookedDate, arrTime);
+        DetailedWeather depWeather = getForecastWeather(graph.airports[u].latitude, graph.airports[u].longitude, apiKey, bookedDate, depTime);
+        DetailedWeather arrWeather = getForecastWeather(graph.airports[v].latitude, graph.airports[v].longitude, apiKey, bookedDate, arrTime);
         bool badDep = isBadWeather(depWeather.main);
         bool badArr = isBadWeather(arrWeather.main);
         if (badDep || badArr)
@@ -1550,8 +1556,8 @@ int main(int argc, char *argv[])
 
     if (!bookedDate.empty() && !bookedTime.empty())
     {
-        auto depWeather = getForecastWeather(graph.airports[src].latitude, graph.airports[src].longitude, "1b94bfcc73fd73a372503e6a7a05c9ba", bookedDate, bookedTime);
-        auto arrWeather = getForecastWeather(graph.airports[dst].latitude, graph.airports[dst].longitude, "1b94bfcc73fd73a372503e6a7a05c9ba", bookedDate, bookedTime);
+        auto depWeather = getForecastWeather(graph.airports[src].latitude, graph.airports[src].longitude, apiKey, bookedDate, bookedTime);
+        auto arrWeather = getForecastWeather(graph.airports[dst].latitude, graph.airports[dst].longitude, apiKey, bookedDate, bookedTime);
         cout << "Weather at " << graph.airports[src].code << " [ " << bookedDate << ", " << bookedTime << " ] : " << depWeather.main << " (" << depWeather.desc << ", " << depWeather.temp << " deg C)" << endl;
         cout << "Weather at " << graph.airports[dst].code << " [ " << bookedDate << ", " << bookedTime << " ] : " << arrWeather.main << " (" << arrWeather.desc << ", " << arrWeather.temp << " deg C)" << endl;
     }
@@ -1559,14 +1565,5 @@ int main(int argc, char *argv[])
     {
         cout << "No Booked date/time provided. Run with booking arguments for accurate weather forecast." << endl;
     }
-
-    // Ensure output directory exists (C++17 and later)
-    std::filesystem::create_directories("output");
-
-    // Write the HTML file
-    std::ofstream out("output/boarding_pass.html");
-    out << "<html>...your HTML content...</html>";
-    out.close();
-
     return 0;
 }

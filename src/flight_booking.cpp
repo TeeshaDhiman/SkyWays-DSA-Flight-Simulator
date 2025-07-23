@@ -14,7 +14,14 @@
 #include <unordered_map>
 #include <climits>
 #include <cmath>
+#include "config.h"
 using namespace std;
+
+string apiKey = OPENWEATHERMAP_API_KEY;
+
+#ifndef OPENWEATHERMAP_API_KEY
+#error "API key not defined! Please create config.h and define OPENWEATHERMAP_API_KEY."
+#endif
 
 struct Airport
 {
@@ -260,7 +267,7 @@ void generateTicketFile(const FlightTicket &ticket)
         htmlFile << "<title>Boarding Pass</title>\n";
         htmlFile << "<link href=\"https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap\" rel=\"stylesheet\">\n";
         htmlFile << "<style>\n";
-        htmlFile << "body { background:rgb(251, 247, 255); font-family: 'Quicksand', Arial, sans-serif; margin: 0; padding: 20px; border-black; border-radius: 20px; }\n";
+        htmlFile << "body { background:rgb(251, 247, 255); font-family: \"Quicksand\", Arial, sans-serif; margin: 0; padding: 20px; border-black; border-radius: 20px; }\n";
         htmlFile << ".boarding-pass { width: 950px; height: 370px; background: #fff; border-radius: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.10); margin: auto; border: 2px solid #222; position: relative; overflow: hidden; display: flex; flex-direction: column; }\n";
         htmlFile << ".header { width: 100%; height: 48px; background:rgb(103, 74, 192); display: flex; align-items: center; justify-content: space-between; position: absolute; top: 0; left: 0; z-index: 2; border-bottom: 2px solid rgb(97, 47, 236); border-top-left-radius: 24px; border-top-right-radius: 24px;}\n";
         htmlFile << ".header-title { font-size: 28px; font-family: 'Quicksand', Arial, sans-serif; font-weight: 400; color: #fff; margin-left: 80px; border-radius: 20px;}\n";
@@ -373,12 +380,12 @@ void generateTicketFile(const FlightTicket &ticket)
         htmlFile << "            <div class=\"value\">" << gate << "</div>\n";
         htmlFile << "            <div class=\"value\">" << flight << "</div>\n";
         htmlFile << "          </div>\n";
-        htmlFile << "           <div style =\"row-gap = 20px;\">\n";
+        htmlFile << "           <div style =\"row-gap : 20px;\">\n";
         htmlFile << "          <div style=\"display: grid; grid-template-columns: 80px 100px; font-family: sans-serif; font-size: 14px; font-family: 'Quicksand', Arial, sans-serif; column-gap: 40px; margin-bottom: 7px;\">";
         htmlFile << "            <div>Date</div>";
         htmlFile << "            <div>From</div>";
-        htmlFile << "            <div style='font-weight: bold; font-family: 'Quicksand', Arial, sans-serif;'>" << date << "</div>";
-        htmlFile << "            <div style='font-weight: bold; font-family: 'Quicksand', Arial, sans-serif;'>" << fromCity << "</div>";
+        htmlFile << "            <div style='font-weight: bold; font-family: \"Quicksand\", Arial, sans-serif;'>" << date << "</div>";
+        htmlFile << "            <div style='font-weight: bold; font-family: \"Quicksand\", Arial, sans-serif;'>" << fromCity << "</div>";
         htmlFile << "            </div>";
         htmlFile << "            <div style=\"display: grid; grid-template-columns: 80px 100px; font-family: sans-serif; font-size: 14px; font-family: 'Quicksand', Arial, sans-serif; column-gap: 40px;\">";
         htmlFile << "            <div>To</div>";
@@ -604,8 +611,6 @@ FlightTicket bookFlight(const vector<Airport> &airports, int src, int dst)
          << setw(7) << "A.Hum" << " "
          << setw(9) << "A.Wind" << endl;
     printLine('-', tableWidth);
-
-    string apiKey = "1b94bfcc73fd73a372503e6a7a05c9ba";
 
     for (int i = 0; i < 5; ++i)
     {

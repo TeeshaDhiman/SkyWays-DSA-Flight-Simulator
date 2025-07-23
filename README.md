@@ -1,157 +1,148 @@
-# Skyways: DSA Flight Simulator
+# ✈️ Skyways: DSA Flight Simulator
 
-**Skyways: DSA Flight Simulator** is an innovative C++ project that brings **Data Structures and Algorithms** (DSA) to life through interactive flight simulation. Using advanced graph theory, it animates classic pathfinding algorithms—**Dijkstra’s, A*, and Bellman-Ford**—on a dynamic map with a user-friendly **SFML** interface. Real-time weather data from the **OpenWeatherMap API** intelligently reroutes flights, mirroring real-world aviation challenges. As a unique touch, Skyways generates a modern, web-based boarding pass with **HTML and CSS** for each booking. Perfect for students, educators, and enthusiasts, this project seamlessly blends algorithms, **UI** design, web tech, and real-world problem solving in a visually engaging experience.
-
----
-
-## 🧠 DSA Focus: Data Structures & Algorithms in Action
-
-This project is a showcase of advanced **Data Structures and Algorithms (DSA)** applied to a real-world problem:
-
-- **Graph Theory:** Airports and flight connections are modeled as a weighted graph.
-- **Pathfinding Algorithms:** Implements and visualizes Dijkstra’s, A* (A-Star), and Bellman-Ford algorithms for shortest path computation.
-- **Efficient Data Structures:** Uses adjacency lists, edge structures, STL containers (vectors, sets, maps), and priority queues for optimal performance.
-- **Practical Application:** Demonstrates how classic DSA concepts power real-world systems like airline routing, especially under dynamic constraints like weather.
+**Skyways: DSA Flight Simulator** is a comprehensive C++ project that merges the power of **Data Structures and Algorithms (DSA)** with real-world aviation systems. It visually demonstrates how classic pathfinding techniques— **Dijkstra’s**, **A\***, and **Bellman-Ford** —can be applied to dynamic flight routing, complete with live weather-based rerouting via the **OpenWeatherMap API**. With a sleek **SFML** interface and automated **HTML/CSS** boarding pass generation, Skyways transforms algorithm education into an engaging, interactive experience.
 
 ---
 
-## 🚀 Why This Project is Impactful
+## 🚀 Why Skyways Matters
 
-- **Real-World Problem Solving:** Simulates real airline routing, including rerouting due to adverse weather, just like real-world flight operations.
-- **Educational Value:** Demonstrates classic and modern pathfinding algorithms (Dijkstra, A*, Bellman-Ford) with live, visual feedback—perfect for students and educators.
-- **Data Integration:** Fetches and uses real weather data (OpenWeatherMap API) to affect routing, showing practical API usage and real-time data handling.
-- **Technical Breadth:** Combines algorithms, graphics, user interaction, and external APIs in a single, cohesive C++ project.
-- **Portfolio-Ready:** A complete, visually engaging application that stands out in any portfolio or resume.
+- 🔁 **Realistic Simulation :** Emulates flight rerouting under adverse weather conditions—just like in real-world aviation.
+- 🧑‍🏫 **Educational Value :** Demonstrates advanced algorithms in a visual and interactive format.
+- 🔗 **API Integration :** Uses real-time weather data via the OpenWeatherMap API to affect routing decisions.
+- ⚙️ **Complete Tech Stack :** Combines C++, SFML, web development (HTML/CSS), and RESTful APIs.
+- 🧳 **Portfolio-Ready :** A standout addition for students or developers showcasing algorithmic problem-solving and UI integration.
 
 ---
 
 ## 🛫 Project Overview
 
-This project blends logic, real-world data, and visual presentation through two integrated modules:
-- **Flight Booking System:** Search for flights, input passenger data, see dynamic pricing, and receive a stylish HTML/CSS boarding pass (saved in `output/`).
-- **Flight Simulator:** Visualizes the chosen route, reroutes for bad weather, and animates the aircraft on a real map.
+Skyways is composed of two main modules:
+
+### 1. **Flight Booking System** (`flight_booking.cpp`)
+- Select departure and arrival airports by code or index.
+- View available flights over 5 days with dynamic pricing.
+- Enter passenger details and confirm booking.
+- Generates a modern **HTML/CSS** boarding pass stored in `output/`.
+- Launches the **Flight Simulator** module with selected route.
+
+### 2. **Flight Simulator** (`flight_simulator.cpp`)
+- Animates the chosen route with real-time flight path visualization.
+- Fetches and processes **live weather data**.
+- Automatically reroutes flights for safety.
+- Offers choice of **Shortest**, **Cheapest**, or **Fastest** path.
+- Supports all three algorithms: **Dijkstra**, **A\***, and **Bellman-Ford**.
+- Built using **SFML** for dynamic rendering and animation.
+
+---
+
+## 🧠 DSA in Action
+
+This project demonstrates how advanced algorithmic logic and data structures can solve real-world problems:
+
+- **Graph Theory :** Airports and routes modeled as a weighted graph.
+- **Pathfinding Algorithms :** Implements Dijkstra’s, A*, and Bellman-Ford algorithms to compute the optimal path.
+- **Efficient Data Structures :** Uses adjacency lists, edge structures, STL containers (`vector`, `map`, `set`), and priority queues.
+- **Real-Time Adaptation :** Reacts dynamically to weather data and re-routes flights accordingly.
 
 ---
 
 ## ✨ Key Features
 
-- Interactive terminal-based booking and flight selection
-- Dynamic pricing based on travel date
-- Real-time weather condition simulation and rerouting (OpenWeatherMap API)
-- Pathfinding with Dijkstra, A*, and Bellman-Ford algorithms
-- Animated, SFML-powered map visualization
-- Generates a modern HTML/CSS boarding pass for each booking (in `output/`)
-- Modular, modern C++ code (C++11+)
-- Command-line and graphical launch supported
-- Windows build-ready (all required DLLs included in `dll/`)
+- 🧾 Terminal-based flight booking
+- 📅 Dynamic pricing engine
+- 🌩️ Real-time weather-driven path changes
+- 🧭 Visualized pathfinding (Dijkstra, A*, Bellman-Ford)
+- ✈️ Animated aircraft movement on map
+- 🧾 HTML/CSS boarding pass for every booking
+- 🧰 Modular and modern C++17 codebase
+- 🖼️ SFML interface for simulation and UI
+- 💻 Command-line and graphical launch support
 
 ---
 
-## 🧩 Components
+## 📁 Project Structure
 
-### 1. Flight Booking (`flight_booking.cpp` in `src/`)
-- Select departure and arrival airports (by code or index)
-- View flight options for 5 days with dynamic pricing
-- Enter passenger details and confirm bookings
-- Generates a stylish HTML/CSS boarding pass for each booking
-- Launch the simulator with selected route
-
-### 2. Flight Simulator (`flight_simulator.cpp` in `src/`)
-- Visualizes flight paths and reroutes for bad weather
-- Fetches real weather data for each segment
-- Animated aircraft movement on a real map
-- User can choose shortest, cheapest, or fastest path
-- Compare Dijkstra, A*, and Bellman-Ford algorithms
-
- **Note:** This module is designed to be launched from the booking system or with the appropriate input files/arguments. It does not work as a fully standalone application.
+Skyways-DSA-Flight-Simulator/
+├── src/              # C++ source files
+│   ├── flight_booking.cpp
+│   └── flight_simulator.cpp
+├── assets/           # Runtime assets (images, maps)
+├── dll/              # Required DLLs (not committed to Git)
+├── output/           # Generated files (boarding passes)
+├── screenshots/      # Demo images and documentation visuals
+├── demo/             # Animated demo (MP4)
+├── compile.bat       # Build script (Windows)
+├── run.bat           # Run script (sets up DLL path)
+├── .vscode/          # VS Code settings (optional)
+├── .gitignore        # Git ignore rules
+└── README.md         # Project documentation
 
 ---
 
 ## 📦 Dependencies
 
-- **SFML 2.6.2** (Graphics Library)
-- **CPR** (C++ Requests, for HTTP)
-- **nlohmann/json** (for JSON parsing)
-- **C++ Compiler** (C++17 recommended)
-- **Windows OS** (current build is Windows-focused)
-- **OpenWeatherMap API key**
+- **SFML 2.6.2**                  Graphics rendering and real-time animation
+- **CPR**                         HTTP requests (for OpenWeatherMap API)
+- **nlohmann/json**               JSON parsing and processing  
+- **C++ Compiler (C++17+)**       Required to compile the project
+- **Windows OS**                  Current build supports Windows by default
+- **OpenWeatherMap API key**      Access to live weather data
 
 ---
 
 ## 🛠️ How to Build and Run
 
-1. Clone the repo and install dependencies (see above).
-2. Run `compile.bat` to build the project. This will:
+1. **Clone the Repository** and install Dependencies (see above).
+2. Run `compile.bat` to build the project. This will :
    - Compile all source files from `src/`
    - Copy all required DLLs into the `dll/` folder
 3. Use `run.bat` to launch the booking system. This will:
    - Temporarily add `dll/` to your PATH so all DLLs are found
    - Run `flight_booking.exe` (or modify to run `flight_simulator.exe` as needed)
 
-> **Note:** Always use `flight_booking` to start a new session. `flight_simulator` relies on data generated by the booking system and is not intended to be run independently.
-
----
-
-## 📁 Project Structure
-
-- `src/` — C++ source files (`flight_simulator.cpp`, `flight_booking.cpp`)
-- `assets/` — Images, fonts, and other runtime assets used by the application
-- `dll/` — All required DLLs for running the executables (not committed to git)
-- `output/` — Generated files 
-- `screenshots/` — Example/demo images and GIFs for documentation
-- `demo/` — Animated demo of the application in action
-- `.vscode/` — VS Code project settings (optional, for development)
-- `compile.bat` — Build script for compiling the project
-- `run.bat` — Run script (sets up DLL path and launches the app)
-- `.gitignore` — Git ignore rules
-- `README.md` — Project documentation
-
 ---
 
 ## 🎬 Demo
 
-- `screenshots/flight_path_example.png` — Screenshot of the flight path visualization
-- `screenshots/boarding_pass_sample.png` — Screenshot of a generated boarding pass
-- `screenshots/demo.gif` — Animated demo of the application in action
+You can preview key outputs of the project below:
 
-You can also view them below:
+🗺️ Flight Path Visualization :  ![Flight Path](screenshots/)
 
-![Flight Booking Example](screenshots/)
-![Boarding Pass Sample](output/boarding_pass.png)
-![Demo Animation](demo/flight_visualization.mp4)
+🎟️ Boarding Pass Sample :  ![Boarding Pass](output/boarding_pass.png)
+
+🎞️ Application Demo :  ![Demo](demo/flight_visualization.mp4)
 
 ---
 
-## 🔑 API Key Notice
+## 🔑 API Key
 
-- The OpenWeatherMap API key is currently hardcoded for demonstration. **For public use, replace it with your own key or move it to a config file/environment variable.**
+- The OpenWeatherMap API key is stored securely in a configuration file for better security and flexibility.
+- Before running the project, make sure to insert your own API key into the config file (e.g., `config.h` or `.env`).
+- In production or public use, consider encrypting or hiding your config via environment variables or a secure key vault mechanism.
 
 ---
 
-## 🛠️ Technologies Used
+## 🧩 Troubleshooting
 
-- C++17
-- SFML
-- CPR
-- nlohmann/json
-- HTML & CSS
-- OpenWeatherMap API
+- **Missing DLLs :** Make sure to use `run.bat` so all DLLs in `dll/` are found.
+- **API Key Issues :**  Update the default OpenWeatherMap API key in the source code with your own key, or store it securely via a configuration file or environment variable.
 
 ---
 
 ## 📚 License
 
-This project is created for educational purposes.
+This project is licensed under the **MIT** License and is intended solely for educational and academic purposes.
+
+---
+
+## 🙏 Acknowledgments
+
+- **OpenWeatherMap** — For providing real-time weather data.
+- **SFML** — For powering the visual simulation.
 
 ---
 
 ## 👤 Author
 
 Teesha Dhiman
-
----
-
-## 🛠️ Troubleshooting
-
-- **Missing DLLs:** Make sure to use `run.bat` so all DLLs in `dll/` are found.
-- **API Key Issues:** Replace the hardcoded OpenWeatherMap API key with your own in the source or use a config file.
+Developer of Skyways: DSA Flight Simulator
